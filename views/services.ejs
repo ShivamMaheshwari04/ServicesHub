@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Services Hub : Services Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Comment on 05-04-2024 -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/Services.css">
+    <!-- font awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <%- include('./Other Files/header.ejs') %>
+        <!-- <link rel="stylesheet" href="css/main.css"> -->
+        <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    @media (max-width: 992px) {
+        /* Define styles for screens with width less than 991 pixels */
+        .rounded-circle {
+            margin-right: 5px;
+            width: 30px
+        }
+    }
+
+    .preview {
+        /* display: none; */
+        padding: 2rem;
+        text-align: center;
+        background: #fff;
+        position: relative;
+        margin: 2rem;
+    }
+
+    .preview.active {
+        display: inline-block;
+    }
+
+    .preview .fa-times {
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+        cursor: pointer;
+        color: #444;
+        font-size: 4rem;
+    }
+
+    .preview .fa-times:hover {
+        transform: rotate(90deg);
+    }
+
+    .preview h3 {
+        color: #444;
+        padding: .5rem 0;
+        font-size: 2.5rem;
+    }
+
+    .preview .stars {
+        padding: 1rem 0;
+        font-size: 1.7rem;
+    }
+
+    .preview .stars i {
+        color: #27ae60;
+    }
+
+    .preview .stars span {
+        color: #999;
+    }
+
+    .preview p {
+        line-height: 1.5;
+        padding: 1rem 0;
+        font-size: 1.6rem;
+        color: #777;
+    }
+
+    .preview .price {
+        padding: 1rem 0;
+        font-size: 2.5rem;
+        color: #27ae60;
+    }
+
+    .preview .buttons {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+
+    .products-preview .preview .buttons a {
+        flex: 1 1 16rem;
+        padding: 1rem;
+        font-size: 1.8rem;
+        color: #444;
+        border: .1rem solid #444;
+    }
+
+    .products-preview .preview .buttons a.cart {
+        background: #444;
+        color: #fff;
+    }
+
+    .products-preview .preview .buttons a.cart:hover {
+        background: #111;
+    }
+
+    .products-preview .preview .buttons a.buy:hover {
+        background: #444;
+        color: #fff;
+    }
+</style>
+
+<body>
+    <%- include('./Other Files/navbar.ejs') %>
+
+        <div class="products">
+            <div class="container">
+                <h1 class="lg-title">View All Services</h1>
+                <!-- <p class="text-light" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quos sit
+                    consectetur, ipsa voluptatem vitae necessitatibus dicta veniam, optio, possimus assumenda
+                    laudantium. Temporibus, quis cum.</p> -->
+
+                <div class="product-items">
+                    <!-- single product -->
+                    <% for (let i=0; i < items.length; i++) { %>
+                        <% if (items[i].s_status=="Active" ) { %>
+                            <div class="product">
+                                <div class="product-content">
+                                    <div class="product-img">
+                                        <img src="<%= items[i].ImageLink %>" alt="product image">
+                                    </div>
+                                    <div class="product-btns">
+                                        <!-- <button type="button" class="btn-cart"> add to cart
+                                    <span><i class="fas fa-plus"></i></span>
+                                    </button> -->
+
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn-buy" id="btn<%= i %>"
+                                            onclick="openModal(<%= i %>)">
+                                            View Details
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="product-info">
+                                    <div class="product-info-top">
+                                        <h2 class="sm-title" value="<%= items[i].category %>">
+                                            <%= items[i].category %>
+                                        </h2>
+                                        <!-- <div class="rating">
+                                            <span><i class="fas fa-star"></i></span>
+                                            <span><i class="fas fa-star"></i></span>
+                                            <span><i class="fas fa-star"></i></span>
+                                            <span><i class="fas fa-star"></i></span>
+                                            <span><i class="far fa-star"></i></span>
+                                        </div> -->
+                                    </div>
+                                    <a href="#" class="product-name" value="<%= items[i].title %>">
+                                        <%= items[i].title %>
+                                    </a>
+                                    <!-- <p class="product-price">$ 150.00</p> -->
+                                    <p class="product-price" value="<%= items[i].price %>">₹ <%= items[i].price %>
+                                    </p>
+                                </div>
+
+                                <div class="off-info">
+                                    <h2 class="sm-title">25% off</h2>
+                                </div>
+                            </div>
+                            <% } else { %>
+                                <% } %>
+                                    <!-- end of single product -->
+                                    <% } %>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <%- include('./Other Files/Footer.ejs') %>
+</body>
+<script>
+    function openModal(index) {
+        const url = `/modal?index=${index}`;
+        window.location.href = url;
+    }
+
+</script>
+
+
+</html>

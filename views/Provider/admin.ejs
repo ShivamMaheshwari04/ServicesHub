@@ -1,0 +1,1079 @@
+<!Doctype HTML>
+<html>
+
+<head>
+    <title>Services Hub - Provider Panel </title>
+    <link rel="stylesheet" href="css/admin.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <%- include('../Other Files/header.ejs') %>
+</head>
+<style>
+    /* body {
+    color: #000;
+    overflow-x: hidden;
+    height: 100%;
+    background-color: #8C9EFF;
+    background-repeat: no-repeat;
+} */
+
+    .card {
+        z-index: 0;
+        background-color: #ECEFF1;
+        padding-bottom: 20px;
+        /* margin-top: 90px; */
+        /* margin-bottom: 90px; */
+        /* border-radius: 10px; */
+    }
+
+    .top {
+        padding-top: 40px;
+        padding-left: 13% !important;
+        padding-right: 13% !important;
+    }
+
+    /*Icon progressbar*/
+    #progressbar {
+        margin-bottom: 30px;
+        overflow: hidden;
+        color: #455A64;
+        padding-left: 0px;
+        margin-top: 30px;
+    }
+
+    #progressbar li {
+        list-style-type: none;
+        font-size: 13px;
+        width: 25%;
+        float: left;
+        position: relative;
+        font-weight: 400;
+        /* border-radius: 0px 20px 20px 0px; */
+    }
+
+    #progressbar .step0:before {
+        font-family: FontAwesome;
+        content: "\f10c";
+        color: #fff;
+    }
+
+    #progressbar li:before {
+        width: 40px;
+        height: 40px;
+        line-height: 45px;
+        display: block;
+        font-size: 20px;
+        background: #C5CAE9;
+        border-radius: 50%;
+        margin: auto;
+        padding: 0px;
+    }
+
+    /*ProgressBar connectors*/
+    #progressbar li:after {
+        content: '';
+        width: 100%;
+        height: 12px;
+        background: #C5CAE9;
+        position: absolute;
+        left: 0;
+        top: 16px;
+        z-index: -1;
+    }
+
+    #progressbar li:last-child:after {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: absolute;
+        left: -50%;
+    }
+
+    #progressbar li:nth-child(2):after,
+    #progressbar li:nth-child(3):after {
+        left: -50%;
+    }
+
+    #progressbar li:first-child:after {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        position: absolute;
+        left: 50%;
+    }
+
+    #progressbar li:last-child:after {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    #progressbar li:first-child:after {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    /*Color number of the step and the connector before it*/
+    #progressbar li.active:before,
+    #progressbar li.active:after {
+        background: #651FFF;
+    }
+
+    #progressbar li.active:before {
+        font-family: FontAwesome;
+        content: "\f00c";
+    }
+
+    .icon {
+        width: 60px;
+        height: 60px;
+        margin-right: 15px;
+    }
+
+    .icon-content {
+        padding-bottom: 20px;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 0rem;
+    }
+
+    @media screen and (max-width: 992px) {
+        .icon-content {
+            width: 50%;
+        }
+    }
+
+
+    /* Profile CSS */
+
+    .content.manage {
+        margin: auto;
+        max-width: 90vw;
+        /* Adjust max-width as needed */
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        text-align: left;
+        white-space: nowrap;
+        /* Prevent text from wrapping */
+    }
+
+    .tab-img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 8px;
+    }
+
+    /* Add this to center the table */
+    table {
+        margin: auto;
+    }
+
+    /* Add this for responsiveness */
+    @media (max-width: 768px) {
+
+        table,
+        thead,
+        tbody,
+        th,
+        td,
+        tr {
+            display: block;
+        }
+
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+        tr {
+            border: 1px solid #ccc;
+        }
+
+        td {
+            border: none;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 50%;
+        }
+
+        td:before {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
+
+        td:nth-of-type(1):before {
+            content: "S-ID";
+        }
+
+        td:nth-of-type(2):before {
+            content: "Category";
+        }
+
+        td:nth-of-type(3):before {
+            content: "Title";
+        }
+
+        td:nth-of-type(4):before {
+            content: "Price";
+        }
+
+        td:nth-of-type(5):before {
+            content: "Status";
+        }
+
+        td:nth-of-type(6):before {
+            content: "Action";
+        }
+    }
+
+    /* input */
+    .input-box textarea {
+        /* width: calc(100% - 20px); Adjust width to accommodate padding and borders */
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 16px;
+        resize: none;
+    }
+
+
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    textarea {
+        height: 200px;
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+
+    .select-box select {
+        height: 100%;
+        width: 100%;
+        outline: none;
+        border: none;
+        color: #707070;
+        font-size: 1rem;
+        border-radius: 10px;
+    }
+    .feedback-section {
+		text-align: center;
+		margin-top: 50px;
+		/* Adjust as needed */
+	}
+
+	/* Style for the star rating */
+	.feedback-section {
+		text-align: center;
+		margin-top: 50px;
+		/* Adjust as needed */
+	}
+
+	/* Style for the star icons */
+	.star-rating i {
+		font-size: 25px;
+		color: #ccc;
+		cursor: pointer;
+	}
+
+	.star-rating i:hover,
+	.star-rating i.selected {
+		color: #28a745;
+		/* Green color */
+	}
+
+	.comment-section {
+		text-align: center;
+		margin-top: 20px;
+		/* Adjust as needed */
+	}
+
+	.comment-section textarea {
+		width: 300px;
+		/* Fixed width */
+		max-width: 100%;
+		/* Allow the comment box to be responsive */
+		min-height: 100px;
+		padding: 10px;
+		margin: 0 auto;
+		/* Center the comment box */
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		resize: none;
+	}
+
+	/* Error message style */
+	.error-message {
+		color: red;
+	}
+
+	/* Style for the submit button */
+	#submitFeedbackBtn {
+		margin-top: 20px;
+		/* Adjust as needed */
+	}
+
+	/* Hide the feedback section after submission */
+	.submitted-feedback {
+		display: none;
+	}
+
+	/* Styling for the submitted feedback */
+	.submitted-feedback h2 {
+		color: #28a745;
+	}
+
+	.submitted-feedback div {
+		margin-top: 10px;
+	}
+</style>
+
+<body>
+
+    <div id="mySidenav" class="sidenav">
+        <p class="logo">Services Hub <span class="menu">☰</span></p>
+        <p class="logo1"> <span class="menu1">☰</span></p>
+        <a href="#" id="profileLink" class="icon-a"><i class="fa fa-user icons"></i> My Profile</a>
+        <a href="/Add-Services" class="icon-a"><i class="fa fa-tasks icons"></i> Add Services</a>
+        <a href="#" class="icon-a" id="manageLink"><i class="fa fa-pie-chart icons"></i> Manage Services</a>
+        <!-- <a href="#" id="bookingLink" class="icon-a"><i class="fa fa-dashboard icons"></i> View Booking</a> -->
+        <a href="#" class="icon-a" id="bookingLink"><i class="fa fa-shopping-bag icons"></i> View Booking</a>
+        <a href="#" class="icon-a" id="completed"><i class="fa fa-list-alt icons"></i> Completed</a>
+        <a href="#" class="icon-a" id="cancelLink"><i class="fa fa-list icons"></i> Cancelled</a>
+        <a href="/" class="icon-a"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a>
+
+    </div>
+    <div id="main">
+
+        <div class="head">
+            <div class="col-div-6">
+                <p class="nav"> Dashboard</p>
+
+            </div>
+
+            <div class="col-div-6">
+                <div class="profile">
+
+                    <img src="Images/Profile/profile.png" class="pro-img" />
+                    <p>
+                        <%= user.id %> <i class="fa fa-ellipsis-v dots" aria-hidden="true"></i>
+                    </p>
+                    <div class="profile-div">
+                        <!-- <p><i class="fa fa-user"></i>   Profile</p> -->
+                        <!-- <p><i class="fa fa-cogs"></i>   Settings</p> -->
+                        <a href="/" style="text-decoration: none;">
+                            <p><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</p>
+                        </a>
+                        <a href="/logout" style="text-decoration: none;">
+                            <p><i class="fa fa-power-off"></i> Log Out</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="clearfix"></div>
+        <!-- <br/> -->
+
+        <!--Profile  -->
+        <div class="container rounded bg-white mt-5 mb-5 details">
+            <div class="row" style="margin-top: -89px;">
+                <div class="col-md-3 border-right">
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
+                            class="rounded-circle mt-5" width="150px" src="/Images/Profile/Profile.png"><span
+                            class="font-weight-bold"><%= user.name %></span><span class="text-black-50"><%= user.id %></span><span>
+                        </span></div>
+                </div>
+                <div class="col-md-5 border-right">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">Profile Settings</h4>
+                        </div>
+                        <div class="row mt-1">
+                            <div class="col-md-12"><label class="labels">Username</label><input type="text" disabled
+                                    class="form-control" value="<%= user.id %>"></div>
+                            <div class="col-md-12"><label class="labels">Name</label><input type="text" disabled
+                                    class="form-control" value="<%= user.name %>"></div>
+                            <!-- <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div> -->
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text"
+                                    disabled class="form-control" value="<%=user.number%>"></div>
+                            <div class="col-md-12"><label class="labels">Address</label><input type="text" disabled
+                                    class="form-control" value="<%=user.address%>"></div>
+                            <div class="col-md-12"><label class="labels">Email ID</label><input type="text" disabled
+                                    class="form-control" value="<%=user.email%>"></div>
+                            <!-- <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div> -->
+                            <!-- <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div> -->
+                            <div class="col-md-12"><label class="labels">State</label><input type="text" disabled
+                                    class="form-control" value="Madhya Pradesh"></div>
+                            <div class="col-md-12"><label class="labels">City</label><input type="text" disabled
+                                    class="form-control" value="Gwalior"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bookings -->
+    <div class="container px-1 px-md-4 py-5 mx-auto clickhide" style="display: none;">
+        <h1 style="text-align: center; margin-top: -25px;">Booking Details</h1>
+        <br>
+        <% for (let i=0; i < items.length; i++) { %>
+            <% if (items[i].status=="confirm" ) { %>
+                <div class="card">
+                    <div class="row d-flex justify-content-between px-3 top">
+                        <div class="col-md">
+                            <div class="d-flex flex-column">
+                                <h5>Booking ID :<span class="text-primary font-weight-bold">#<%=items[i].b_id%></span>
+                                </h5>
+                                <br class="d-sm-none">
+                                <h5>Service ID :<span class="text-primary font-weight-bold">#<%=items[i].s_id%></span>
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="d-flex flex-column text-sm-right">
+                                <p class="mb-0" style="font-size: 1.25rem;font-weight: 500;margin-top: -6px;"> Details</p>
+                                <p>User Id : <span class="font-weight-bold">
+                                        <%=items[i].u_id%>
+                                    </span></p>
+                                <p>Provider Id. : <span class="font-weight-bold"><%=items[i].p_id%></span></p>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="d-flex flex-column text-sm-right">
+                                <p>Date <span class="font-weight-bold">
+                                        <%=items[i].b_date.toLocaleDateString(undefined, { year: 'numeric' ,
+                                            month: 'long' , day: 'numeric' }) %>
+                                    </span></p>
+                                <p class="mb-0">Time Slot <span>
+                                        <%=items[i].timeslot%>
+                                    </span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between top">
+                        <div class="col-md-auto">
+                            <img src="<%=items[i].ImageLink%>" alt="Product Image" width="100px"
+                                style="border-radius: 10px;">
+                        </div>
+                        <div class="col-md">
+                            <div class="d-flex flex-column">
+                                <h5 style="font-size: 1.60rem;font-weight: 600;padding-left: 15px;padding-top: 15px;">
+                                    <%=items[i].title%>
+                                </h5>
+                                <p style="font-size: 1.50rem;font-weight: 600;padding-left: 15px;">Price: ₹
+                                    <%=items[i].price%>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add class 'active' to progress -->
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-12">
+                            <ul id="progressbar" class="text-center">
+                                <li class="active step0"></li>
+                                <li class="active"></li>
+                                <li class="step0"></li>
+                                <li class="step0"></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between top">
+                        <div class="row d-flex icon-content">
+                            <img class="icon" src="https://i.imgur.com/9nnc9Et.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Booking<br>Confirmed</p>
+                            </div>
+                        </div>
+                        <div class="row d-flex icon-content">
+                            <img class="icon" src="https://i.postimg.cc/cLbjts7q/2.pngg">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Accepted<br></p>
+                            </div>
+                        </div>
+                        <div class="row d-flex icon-content">
+                            <img class="icon" src="https://i.postimg.cc/vZBkm1VL/1.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Processed<br></p>
+                            </div>
+                        </div>
+                        <div class="row d-flex icon-content">
+                            <img class="icon" src="https://i.imgur.com/HdsziHP.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Completed<br></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-end" style="margin: inherit;">
+                        <div class="col-auto">
+                            <button class="btn btn-primary btn-done" data-booking-id="<%=items[i].b_id%>">Done</button>
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn btn-danger btn-cancel"
+                                data-booking-id="<%=items[i].b_id%>">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <% } else { %>
+                    <% } %>
+
+                        <% } %>
+    </div>
+
+    <!-- Cancelled -->
+    <div class="container px-1 px-md-4 py-5 mx-auto cancelled" style="display: none;">
+        <h1 style="text-align: center; margin-top: -25px;">Booking Cancelled</h1>
+        <br>
+        <% for (let i=0; i < items.length; i++) { %>
+            <% if (items[i].status=="cancelled" ) { %>
+                <div class="card">
+                    <div class="row d-flex justify-content-between px-3 top">
+                        <div class="col-md">
+                            <div class="d-flex flex-column">
+                                <h5>Booking ID :<span class="text-primary font-weight-bold">#<%=items[i].b_id%></span>
+                                </h5>
+                                <br class="d-sm-none">
+                                <h5>Service ID :<span class="text-primary font-weight-bold">#<%=items[i].s_id%></span>
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="d-flex flex-column text-sm-right">
+                                <p class="mb-0" style="font-size: 1.25rem;font-weight: 500;margin-top: -6px;"> Details</p>
+                                <p>User Id : <span class="font-weight-bold">
+                                        <%=items[i].u_id%>
+                                    </span></p>
+                                <p>Provider Id. : <span class="font-weight-bold"><%=items[i].p_id%></span></p>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="d-flex flex-column text-sm-right">
+                                <p>Date <span class="font-weight-bold">
+                                        <%=items[i].b_date.toLocaleDateString(undefined, { year: 'numeric' ,
+                                            month: 'long' , day: 'numeric' }) %>
+                                    </span></p>
+                                <p class="mb-0">Time Slot <span>
+                                        <%=items[i].timeslot%>
+                                    </span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between top">
+                        <div class="col-md-auto">
+                            <img src="<%=items[i].ImageLink%>" alt="Product Image" width="100px"
+                                style="border-radius: 10px;">
+                        </div>
+                        <div class="col-md">
+                            <div class="d-flex flex-column">
+                                <h5 style="font-size: 1.60rem;font-weight: 600;padding-left: 15px;padding-top: 15px;">
+                                    <%=items[i].title%>
+                                </h5>
+                                <p style="font-size: 1.50rem;font-weight: 600;padding-left: 15px;">Price: ₹
+                                    <%=items[i].price%>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <% } else { %>
+                    <% } %>
+
+                        <% } %>
+    </div>
+
+    <!-- Completed -->
+
+    <div class="container px-1 px-md-4 py-5 mx-auto completed" style="display: none;">
+        <h1 style="text-align: center; margin-top: -25px;">Booking Completed</h1>
+        <br>
+        <% for (let i=0; i < items.length; i++) { %>
+            <% if (items[i].status=="completed" ) { %>
+                <div class="card">
+                    <div class="row d-flex justify-content-between px-3 top">
+                        <div class="col-md">
+                            <div class="d-flex flex-column">
+                                <h5>Booking ID :<span class="text-primary font-weight-bold">#<%=items[i].b_id%></span>
+                                </h5>
+                                <br class="d-sm-none">
+                                <h5>Service ID :<span class="text-primary font-weight-bold">#<%=items[i].s_id%></span>
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="d-flex flex-column text-sm-right">
+                                <p class="mb-0" style="font-size: 1.25rem;font-weight: 500;margin-top: -6px;"> Details</p>
+                                <p>User Id : <span class="font-weight-bold">
+                                        <%=items[i].u_id%>
+                                    </span></p>
+                                <p>Provider Id. : <span class="font-weight-bold"><%=items[i].p_id%></span></p>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="d-flex flex-column text-sm-right">
+                                <p>Date <span class="font-weight-bold">
+                                        <%=items[i].b_date.toLocaleDateString(undefined, { year: 'numeric' ,
+                                            month: 'long' , day: 'numeric' }) %>
+                                    </span></p>
+                                <p class="mb-0">Time Slot <span>
+                                        <%=items[i].timeslot%>
+                                    </span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-12">
+                            <ul id="progressbar" class="text-center">
+                                <li class="active step0"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active step0"></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between top" style="padding-top: 0px;">
+                        <div class="row d-flex icon-content">
+                            <img class="icon" src="https://i.imgur.com/9nnc9Et.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Booking<br>Confirmed</p>
+                            </div>
+                        </div>
+                        <div class="row d-flex icon-content">
+                            <img class="icon" src="https://i.postimg.cc/cLbjts7q/2.pngg">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Accepted<br></p>
+                            </div>
+                        </div>
+                        <div class="row d-flex icon-content">
+                            <img class="icon" src="https://i.postimg.cc/vZBkm1VL/1.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Processed<br></p>
+                            </div>
+                        </div>
+                        <div class="row d-flex icon-content">
+                            <img class="icon" src="https://i.imgur.com/HdsziHP.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Completed<br></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between top">
+                        <div class="col-md-auto">
+                            <img src="<%=items[i].ImageLink%>" alt="Product Image" width="100px"
+                                style="border-radius: 10px;">
+                        </div>
+                        <div class="col-md">
+                            <div class="d-flex flex-column">
+                                <h5 style="font-size: 1.60rem;font-weight: 600;padding-left: 15px;padding-top: 15px;">
+                                    <%=items[i].title%>
+                                </h5>
+                                <p style="font-size: 1.50rem;font-weight: 600;padding-left: 15px;">Price: ₹
+                                    <%=items[i].price%>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <% const bookingId=items[i].b_id; const matchingFeedback=feedback.find(f=> f.b_id === bookingId);
+					if (matchingFeedback) { %>
+						<div class="feedback-section" id="<%=matchingFeedback.f_id %>">
+							<h2>Feedback</h2>
+							<!-- Star rating -->
+							<div class="star-rating">
+								<% for (let j=0; j < matchingFeedback.rating; j++) { %>
+									<i class="fas fa-star text-warning"></i>
+									<% } %>
+							</div>
+							<!-- Comment section -->
+							<div class="comment-section form-group">
+								<label for="comment">Comment :</label>
+								<textarea class="form-control" id="comment" name="comment" rows="3" maxlength="200"
+									disabled><%=matchingFeedback.comment%></textarea>
+								<div id="commentError" class="error-message" disabled></div>
+							</div>
+							<!-- Hidden input field for user ID -->
+							<!-- Submit button -->
+						</div>
+					<% } else { %>
+							<div class="feedback-section"><h3>No Feedback Received Yet</h3></div>
+							<% } %>
+                </div>
+                <br>
+                <% } else { %>
+                    <% } %>
+
+                        <% } %>
+    </div>
+    <!-- Manage Listing -->
+    <div class="content manage" style="display: none;margin-right: 10px;font-size: 1.25rem;">
+        <h1 style="text-align: center;">Manage Service Listings</h1><br>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col" width="50px" height="auto">S-ID</th>
+                    <th scope="col" width="100px">Provider ID</th>
+                    <th scope="col" width="100px">Image</th>
+                    <th scope="col" width="100px">Category</th>
+                    <th scope="col" width="290px">Title</th>
+                    <th scope="col">&#8377 Price</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" width="70px">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (length==undefined) { %>
+                    <tr>
+                        <td colspan="7" style="text-align: center;">
+                            <h3>No Service Listing</h3>
+                        </td>
+                    </tr>
+                    <% } %>
+
+                        <% for (let i=0; i < length; i++) { %>
+                            <% if (listing[i].s_status=="Active" ) { %>
+                                <tr>
+                                    <td data-label="<%=listing[i].s_id%>">
+                                        <%=listing[i].s_id%>
+                                    </td>
+                                    <td data-label="<%=listing[i].s_id%>" style="font-weight: 600;">
+                                        <%=listing[i].p_id%>
+                                    </td>
+                                    <td data-label="Image Link"><img src="<%=listing[i].ImageLink%>" alt="Product Image"
+                                            width="80px"></td>
+                                    <td data-label="Category">
+                                        <%=listing[i].category%>
+                                    </td>
+                                    <td data-label="title">
+                                        <%=listing[i].title%>
+                                    </td>
+                                    <!-- <td data-label="Period">03/01/2022</td> -->
+                                    <td data-label="price">&#8377 <%=listing[i].price%>
+                                    </td>
+                                    <td data-label="status" style="position: relative;"><span class="pe"></span>Active
+                                    </td>
+                                    <td data-label="Period"><button type="button" class="btn btn-success"
+                                            data-toggle="modal" id="<%=i%>" data-target=".bd-example-modal-lg"
+                                            onclick="editService(<%= i %>)">Edit</button>
+                                        <button type="button" class="btn btn-danger btn-delete"
+                                            listing-id="<%=listing[i].s_id%>">Delete</button>
+                                    </td>
+                                </tr>
+                                <% } else { %>
+                                    <% } %>
+                                        <% } %>
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        var profile = document.getElementsByClassName("details")[0];
+        var bookingLink = document.getElementById("bookingLink");
+        var cancelLink = document.getElementById("cancelLink");
+        var completedLink = document.getElementById("completed");
+        var profileLink = document.getElementById("profileLink");
+        var manageLink = document.getElementById("manageLink");
+        var container = document.getElementsByClassName("clickhide")[0]; // Accessing the first element
+        var cancel = document.getElementsByClassName("cancelled")[0]; // Accessing the first element
+        var completed = document.getElementsByClassName("completed")[0]; // Accessing the first element
+        var manage = document.getElementsByClassName("manage")[0]; // Accessing the first element
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            bookingLink.addEventListener("click", function (event) {
+                event.preventDefault(); // Prevent the default link behavior
+                profile.style.display = "none";
+                cancel.style.display = "none"; // Show the container
+                completed.style.display = "none"; // Show the container
+                manage.style.display = "none";
+                container.style.display = "block"; // Show the container
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            profileLink.addEventListener("click", function (event) {
+                event.preventDefault(); // Prevent the default link behavior
+                container.style.display = "none";
+                cancel.style.display = "none";
+                completed.style.display = "none";
+                manage.style.display = "none";
+                profile.style.display = "block"; // Show the container
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            cancelLink.addEventListener("click", function (event) {
+                event.preventDefault(); // Prevent the default link behavior
+                container.style.display = "none";
+                profile.style.display = "none"; // Show the container
+                completed.style.display = "none"; // Show the container
+                manage.style.display = "none";
+                cancel.style.display = "block"; // Show the container
+            });
+        })
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            completedLink.addEventListener("click", function (event) {
+                event.preventDefault(); // Prevent the default link behavior
+                container.style.display = "none";
+                profile.style.display = "none"; // Show the container
+                cancel.style.display = "none"; // Show the container
+                manage.style.display = "none";
+                completed.style.display = "block"; // Show the container
+            });
+        })
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            manageLink.addEventListener("click", function (event) {
+                event.preventDefault(); // Prevent the default link behavior
+                container.style.display = "none";
+                profile.style.display = "none"; // Show the container
+                cancel.style.display = "none"; // Show the container
+                completed.style.display = "none"; // Show the container
+                manage.style.display = "block"; // Show the container
+            });
+        })
+
+        function handleCancelButtonClick(b_id) {
+            // Show confirmation dialog using SweetAlert
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You are about to cancel this booking.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, cancel it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // If user confirms, send AJAX request to cancel booking
+                    $.ajax({
+                        url: '/cancelBooking',
+                        method: 'POST',
+                        data: { b_id: b_id },
+                        success: function (response) {
+                            // Show success message using SweetAlert
+                            Swal.fire('Cancelled!', 'Your booking has been cancelled.', 'success');
+
+                            // Delay reload by 2 seconds
+                            setTimeout(function () {
+                                // Reload the page
+                                window.location.reload();
+                            }, 2000);
+                        },
+                        error: function (xhr, status, error) {
+                            // Show error message using SweetAlert
+                            Swal.fire('Error!', 'Failed to cancel booking.', 'error');
+                        }
+                    });
+                }
+            });
+        }
+
+        // Attach event listener to the "Cancel" buttons
+        $(document).ready(function () {
+            $('.btn-cancel').click(function () {
+                var b_id = $(this).data('booking-id');
+                handleCancelButtonClick(b_id);
+            });
+        });
+
+        // Function to handle "Done" button click
+        function handleDoneButtonClick(b_id) {
+            // Send AJAX request to update booking status
+            $.ajax({
+                url: '/updateBookingStatus',
+                method: 'POST',
+                data: { b_id: b_id },
+                success: function (response) {
+                    // Show success message using SweetAlert
+                    Swal.fire('Completed!', 'The booking status has been updated to completed.', 'success');
+
+                    // Add class 'active' to progress bar (li element)
+                    $('#progressbar li').eq(2).addClass('active');
+
+                    // Delay reload by 2 seconds
+                    setTimeout(function () {
+                        // Reload the page
+                        window.location.reload();
+                    }, 2000);
+                },
+                error: function (xhr, status, error) {
+                    // Show error message using SweetAlert
+                    Swal.fire('Error!', 'Failed to update booking status.', 'error');
+                }
+            });
+        }
+
+        // Attach event listener to the "Done" buttons
+        $(document).ready(function () {
+            $('.btn-done').click(function () {
+                var b_id = $(this).data('booking-id');
+                handleDoneButtonClick(b_id);
+            });
+        })
+
+        // URL Parser
+        function editService(index) {
+            // Redirect to the Edit route with the index as a parameter
+            window.location.href = '/Edit?index=' + index;
+        }
+        window.onpageshow = function (event) {
+            // Check if the page is being shown to the user after navigating back
+            if (event.persisted) {
+                // Reload the page after 1 second
+                setTimeout(function () {
+                    window.location.reload();
+                }, 1000); // 1000 milliseconds = 1 second
+            }
+        };
+        function handleDeleteButtonClick(listingId) {
+            // Send AJAX request to delete listing
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You are about to Delete this Listing.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '/Delete-listing',
+                        method: 'POST',
+                        data: { id: listingId },
+                        success: function (response) {
+                            // Check if deletion was successful
+                            if (response.success) {
+                                // Show success message using SweetAlert
+                                Swal.fire('Deleted!', 'The listing has been deleted successfully.', 'success');
+                            } else {
+                                // Show error message using SweetAlert
+                                Swal.fire('Error!', response.message, 'error');
+                            }
+
+                            // Delay reload by 1.5 seconds
+                            setTimeout(function () {
+                                // Reload the page
+                                window.location.reload();
+                            }, 1500);
+                        },
+                        error: function (xhr, status, error) {
+                            // Show error message using SweetAlert
+                            Swal.fire('Error!', 'Failed to delete listing.', 'error');
+
+                            // Delay reload by 1.5 seconds
+                            setTimeout(function () {
+                                // Reload the page
+                                window.location.reload();
+                            }, 1500);
+                        }
+                    });
+                }
+            });
+        }
+
+        // Attach event listener to the delete buttons
+        $(document).ready(function () {
+            $('.btn-delete').click(function () {
+                var listingId = $(this).attr('listing-id');
+                handleDeleteButtonClick(listingId);
+            });
+        });
+
+        $(".menu").click(function () {
+            $("#mySidenav").css('width', '70px');
+            $("#main").css('margin-left', '70px');
+            $(".logo").css('display', 'none');
+            $(".logo1").css('display', 'block');
+            $(".logo span").css('visibility', 'visible');
+            $(".logo span").css('margin-left', '-10px');
+            $(".icon-a").css('visibility', 'hidden');
+            $(".icon-a").css('height', '50px');
+            $(".icons").css('visibility', 'visible');
+            $(".icons").css('margin-left', '-8px');
+            $(".menu1").css('display', 'block');
+            $(".menu").css('display', 'none');
+        });
+
+        $(".menu1").click(function () {
+            $("#mySidenav").css('width', '300px');
+            $("#main").css('margin-left', '300px');
+            $(".logo").css('visibility', 'visible');
+            $(".logo").css('display', 'block');
+            $(".icon-a").css('height', '70px');
+            $(".icon-a").css('visibility', 'visible');
+            $(".icons").css('visibility', 'visible');
+            $(".menu").css('display', 'block');
+            $(".menu1").css('display', 'none');
+        });
+
+        $(document).ready(function () {
+            $(".profile p").click(function () {
+                $(".profile-div").toggle();
+
+            });
+            $(".noti-icon").click(function () {
+                $(".notification-div").toggle();
+            });
+
+
+
+
+        });
+    </script>
+</body>
+
+
+</html>

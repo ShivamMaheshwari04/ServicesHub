@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services Hub :- Get Expert Professional Services at Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/main.css">
+  <!-- Favicon start -->
+  <link rel="apple-touch-icon" sizes="512x512" href="favicon_io/android-chrome-512x512.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="favicon_io/android-chrome-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <!-- Favicon End -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<style>
+  /* Import Google font - Poppins */
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+
+  body {
+    background-image: linear-gradient(405deg, rgba(187, 187, 187, 0.04) 0%, rgba(187, 187, 187, 0.04) 50%, rgba(86, 86, 86, 0.04) 50%, rgba(86, 86, 86, 0.04) 100%), linear-gradient(495deg, rgba(166, 166, 166, 0.04) 0%, rgba(166, 166, 166, 0.04) 50%, rgba(92, 92, 92, 0.04) 50%, rgba(92, 92, 92, 0.04) 100%), linear-gradient(450deg, rgb(20, 20, 20), rgb(20, 20, 20));
+    background-size: 142px 142px;
+  }
+
+  .container {
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .container header {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .container .form {
+    margin-top: 30px;
+  }
+
+  .form .input-box {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .input-box label {
+    color: #333;
+  }
+
+  .form :where(.input-box input, .select-box) {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color: #707070;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+  }
+
+  .input-box input:focus {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .form .column {
+    display: flex;
+    column-gap: 15px;
+  }
+
+  .form .gender-box {
+    margin-top: 20px;
+  }
+
+  .gender-box h3 {
+    color: #333;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+
+  .form :where(.gender-option, .gender) {
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+    flex-wrap: wrap;
+  }
+
+  .form .gender {
+    column-gap: 5px;
+  }
+
+  .gender input {
+    accent-color: rgb(130, 106, 251);
+  }
+
+  .form :where(.gender input, .gender label) {
+    cursor: pointer;
+  }
+
+  .gender label {
+    color: #707070;
+  }
+
+  .address :where(input, .select-box) {
+    margin-top: 15px;
+  }
+
+  .select-box select {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    color: #707070;
+    font-size: 1rem;
+  }
+
+  #button {
+    height: 55px;
+    width: 100%;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: rgb(222 18 18);
+
+  }
+
+  #button:hover {
+    background: rgb(255 0 0);
+  }
+
+  /*Responsive*/
+  @media screen and (max-width: 500px) {
+    .form .column {
+      flex-wrap: wrap;
+    }
+
+    .form :where(.gender-option, .gender) {
+      row-gap: 15px;
+    }
+  }
+
+  .input-box textarea {
+    /* width: calc(100% - 20px); Adjust width to accommodate padding and borders */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    resize: none;
+  }
+
+
+
+  input[type="text"],
+  input[type="number"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  textarea {
+    height: 200px;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+</style>
+
+<body>
+  <header>
+
+    <%- include('../Other Files/navbar.ejs') %>
+
+  </header>
+
+  <section class="container">
+    <header>Booking Form</header>
+    <form action="/Booking" method="post" class="form">
+      <div class="input-box">
+        <label for="serviceId">Service ID</label>
+        <input type="text" id="serviceId" name="s_id" maxlength="25" value="<%=service.s_id%>" disabled>
+      </div>
+
+      <div class="input-box">
+        <label for="providerId">Username</label>
+        <input type="text" id="providerId" name="u_id" maxlength="25" value="<%=userData.id%>" disabled>
+      </div>
+
+      <% if (!userData.id) { %>
+        <!-- Include your alert file here -->
+        <%- include('../Alerts/Alert.ejs') %>
+          <% } %>
+
+            <div class="input-box">
+              <label for="date">Date and Timeslot</label>
+              <input type="date" id="txtDate" name="date" min=getTodayDate() style="cursor: pointer;" required>
+              <!-- <span class="link"><a href="https://postimages.org/" target="_blank">Use Postimages to Generate Link</a></span> -->
+            </div>
+
+            <label for="timeslot">Timeslot</label>
+            <div class="column">
+              <div class="select-box">
+                <select id="timeslot" name="timeslot" required>
+                  <option hidden disabled selected value="">Timeslot</option>
+                  <option value="10:00 AM">10:00 AM</option>
+                  <option value="11:00 AM">11:00 AM</option>
+                  <option value="12:00 PM">12:00 PM</option>
+                  <option value="1:00 PM">1:00 PM</option>
+                  <option value="2:00 PM">2:00 PM</option>
+                  <option value="3:00 PM">3:00 PM</option>
+                  <option value="4:00 PM">4:00 PM</option>
+                  <option value="5:00 PM">5:00 PM</option>
+                  <option value="6:00 PM">6:00 PM</option>
+              </select>
+              </div>
+            </div>
+            <input type="submit" id='button' value="Book Now">
+    </form>
+  </section>
+  <!-- Include SweetAlert library -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    $(function () {
+      var dtToday = new Date();
+
+      var month = dtToday.getMonth() + 1;
+      var day = dtToday.getDate();
+      var year = dtToday.getFullYear();
+      if (month < 10)
+        month = '0' + month.toString();
+      if (day < 10)
+        day = '0' + day.toString();
+
+      var minDate = year + '-' + month + '-' + day;
+
+      $('#txtDate').attr('min', minDate);
+    });
+
+    function getTodayDate() {
+        const today = new Date();
+        const month = today.getMonth() + 1;
+        const day = today.getDate();
+        return today.getFullYear() + '-' + (month < 10 ? '0' : '') + month + '-' + (day < 10 ? '0' : '') + day;
+    }
+
+
+    function getCurrentTime() {
+    const currentDate = new Date();
+    let hours = currentDate.getHours();
+    const minutes = currentDate.getMinutes();
+    const period = hours >= 12 ? 'PM' : 'AM';
+
+    // Convert hours to 12-hour format
+    if (hours > 12) {
+        hours -= 12;
+    } else if (hours === 0) {
+        hours = 12;
+    }
+
+    // Add leading zero to minutes if needed
+    const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+
+    return hours + ':' + formattedMinutes + ' ' + period;
+}
+
+console.log(getCurrentTime()); // Output example: "9:05 AM"
+
+function updateTimeslots() {
+    const currentDate = new Date();
+    const selectedDate = new Date(document.getElementById('txtDate').value);
+    const currentTime = getCurrentTime();
+    const timeslotSelect = document.getElementById('timeslot');
+    timeslotSelect.innerHTML = '<option hidden>Timeslot</option>';
+    let timeslotsAvailable = false;
+    const timeslots = [
+        "10:00 AM", "11:00 AM", "12:00 PM",
+        "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM",
+        "5:00 PM", "6:00 PM"
+    ];
+
+    timeslots.forEach(slot => {
+        const option = document.createElement('option');
+        option.value = slot;
+        option.textContent = slot;
+
+        // Parse the time from the timeslot
+        const [time, period] = slot.split(' ');
+
+        // Compare the selected date with the current date
+        if (selectedDate.toDateString() === currentDate.toDateString()) {
+            // If it's the current date, compare with the current time
+            if (currentTime < slot) {
+                timeslotSelect.appendChild(option);
+                timeslotsAvailable = true;
+            }
+        } else if (selectedDate > currentDate) {
+            // If it's a future date, show all timeslots
+            timeslotSelect.appendChild(option);
+            timeslotsAvailable = true;
+        }
+    });
+
+    if (!timeslotsAvailable) {
+        const option = document.createElement('option');
+        option.textContent = 'No timeslots available';
+        timeslotSelect.appendChild(option);
+    }
+}
+
+function getCurrentTime() {
+    const currentDate = new Date();
+    let hours = currentDate.getHours();
+    const minutes = currentDate.getMinutes();
+    const period = hours >= 12 ? 'PM' : 'AM';
+
+    // Convert hours to 12-hour format
+    if (hours > 12) {
+        hours -= 12;
+    } else if (hours === 0) {
+        hours = 12;
+    }
+
+    // Add leading zero to minutes if needed
+    const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+
+    return hours + ':' + formattedMinutes + ' ' + period;
+}
+  document.getElementById('txtDate').addEventListener('change', updateTimeslots);
+  updateTimeslots();
+
+  document.querySelector('.form').addEventListener('submit', function(event) {
+      const date = document.getElementById('txtDate').value;
+      const timeslot = document.getElementById('timeslot').value;
+
+      // Check if date or timeslot is empty
+      if (timeslot == "Timeslot") {
+          // Show SweetAlert with error message
+          Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Please select timeslot!',
+          });
+
+          // Prevent form submission
+          event.preventDefault();
+      }
+  });
+
+  </script>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Document</title> -->
+    <style>
+        /*  */
+
+
+        /* Login Signup */
+        .btn-group button {
+            /* display: block; */
+            /* z-index: 1; */
+            visibility: visible;
+        }
+
+        .profile {
+            /* display: none; */
+            /* z-index: -1; */
+            display: block;
+        }
+
+        .navbar-nav {
+            margin-left: auto;
+        }
+
+        /* Circle adjustments */
+        .rounded-circle {
+            margin-right: 5px;
+        }
+
+        @media (max-width: 985px) {
+            .Size {
+                margin-left: -15px;
+                /* Change margin-left to 0px */
+            }
+        }
+
+        .dropdown-toggle::after {
+            display: none;
+            /* Hide the default dropdown arrow */
+        }
+
+        .dropdown-menu {
+            margin-top: 4px;
+            /* Adjust dropdown menu position */
+        }
+
+        .dropdown-item {
+            color: #ffffff;
+            /* Change text color as needed */
+        }
+
+        .dropdown-item:hover {
+            background-color: #000000;
+            /* Change background color on hover */
+        }
+        
+
+    </style>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+        <!-- Navbar content -->
+        <div class="container-fluid">
+            <!-- <a class="navbar-brand" href="/"><img src="Images/Banner.png" width="150px" height="50px"></a> -->
+            <a class="navbar-brand" href="/"><img src="https://i.postimg.cc/LsZ2rr1r/Banner.png" width="150px" height="50px"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="/services">Services</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact" target="_blank">Contact Us</a>
+                    </li>
+                </ul>
+
+
+                <<% if (userData.token) { %>
+                    <%- include('../buttons/profile.ejs', { userData }) %>
+                <% } else { %>
+                    <%- include('../buttons/login.ejs', { userData }) %>
+                <% } %>
+                
+
+
+            </div>
+        </div>
+        </div>
+    </nav>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdownToggle = document.querySelector('.dropdown-toggle');
+
+            dropdownToggle.addEventListener('click', function (event) {
+                event.preventDefault();
+                const dropdownMenu = this.nextElementSibling;
+
+                if (dropdownMenu.style.display === 'block') {
+                    dropdownMenu.style.display = 'none';
+                } else {
+                    dropdownMenu.style.display = 'block';
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>

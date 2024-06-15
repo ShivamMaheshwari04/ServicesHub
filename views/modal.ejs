@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Image Change</title>
+    <link rel="stylesheet" href="/css/modal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <%- include('./Other Files/header.ejs') %>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+            integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    .description {
+        text-align: center;
+        width: 43%;
+    }
+
+    .clientImage {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .clientImage span {
+        margin-left: 10px;
+    }
+
+    .clientImage img {
+        width: 40px;
+    }
+
+    .reviewSection {
+        padding: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .reviewItem {
+        /* width: 300px; */
+        /* padding: 10px; */
+        margin-top: 25px;
+        cursor: pointer;
+        border-radius: 10px;
+        background-color: #ffffff;
+        /* border: 1px solid #10102a; */
+        transition: all .2s linear;
+    }
+
+    .reviewItem:hover {
+        border-color: aqua;
+        transform: scale(1.01);
+        /* background-color: #090921; */
+        box-shadow: 0 0px 5px 0px #cbc0c0;
+    }
+
+    .top {
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .top ul {
+        display: flex;
+        list-style: none;
+    }
+
+    .top ul li {
+        padding-left: 4px;
+    }
+
+    article p {
+        font-size: 15px;
+        font-weight: 100;
+        margin-bottom: 1rem;
+        font-family: system-ui;
+    }
+
+
+    @media screen and (max-width:700px) {
+        .container {
+            height: auto;
+        }
+
+        .description {
+            width: 90%;
+        }
+    }
+
+    @media screen and (max-width:375px) {
+        .reviewSection {
+            padding: 0;
+        }
+
+        .reviewItem {
+            width: 100%;
+        }
+
+        .clientImage {
+            margin-bottom: 0.6rem;
+        }
+
+        .top {
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+</style>
+
+<body>
+
+    <%- include('./Other Files/navbar.ejs') %>
+        <div class="main-wrapper">
+            <div class="container">
+                <div class="product-div">
+                    <div class="product-div-left">
+                        <div class="img-container">
+                            <div><img src="<%=item.ImageLink%>"></div>
+                        </div>
+                        <!-- <div class = "hover-container">
+                    </div> -->
+                    </div>
+                    <div class="product-div-right">
+                        <span class="product-name">
+                            <%= item.title %>
+                        </span>
+                        <span class="product-price">₹ <%= item.price %></span>
+                        <p class="product-description">
+                            <%= item.description %>
+                        </p>
+                        <div class="btn-groups">
+                            <!-- <button type="button" class="add-cart-btn"><i class="fas fa-shopping-cart"></i>add to cart</button> -->
+                            <button type="button" class="buy-now-btn"
+                                onclick="window.location.href='/book/?id=<%= item.s_id %>'"><i
+                                    class="fas fa-wallet"></i>Book Now</button>
+                        </div>
+
+                        <div class="reviewItem">
+                            <% for (let i=0; i < feedback.length; i++) { %>
+                                <% if (feedback[i].s_id===item.s_id) { %>
+                                    <div class="top">
+                                        <div class="clientImage">
+                                            <img src="/Images/Profile/Profile.png" alt="">
+                                            <span><%= feedback[i].u_name %></span>
+                                        </div>
+                                        <ul>
+                                            <% for (let j=0; j < feedback[i].rating; j++) { %>
+                                                <li><i class="fa-solid fa-star"></i></li>
+                                                <% } %>
+                                            <% if (feedback[i].rating - 5 != 0) { %>
+                                                <% for (let j=0; j < feedback[i].rating-5; j++) { %>
+                                                    <li><i class="fa-regular fa-star"></i></li>
+                                                    <% } %>
+                                            <% } %>         
+                                        </ul>
+                                    </div>
+                                    <article>
+                                        <p class="review">
+                                            <%= feedback[i].comment %></p>
+                                                <p>
+                                                    <%= new Date(feedback[i].b_date).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }) %>
+
+                                                </p>
+                                    </article>
+                                <% } %>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <script src="/js/modal.js"></script>
+</body>
+
+</html>

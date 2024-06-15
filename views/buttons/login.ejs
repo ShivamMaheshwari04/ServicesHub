@@ -1,0 +1,169 @@
+<% if (userData.error) { %>
+    <%- include('../Alerts/Warning.ejs') %>
+<% } else { %>
+    <!-- Your code when userData.error does not exist -->
+<% } %>
+<div class="btn-group hide" role="group" aria-label="Basic mixed styles example">
+    <!-- <button type="button" class="btn btn-danger">Left</button> -->
+    <!-- <button type="button" class="btn btn-warning">Middle</button> -->
+    <button id="loginButton" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Login"
+        style="right: 10px;">Log In</button>
+
+    <!-- Log In Modals -->
+    <div class="modal fade" id="Login" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 Login" id="staticBackdropLabel"> Log in </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm" method="post" id="LoginForm" action="/Login">
+                        <div class="mb-3">
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" value="User"
+                                autocomplete="off" checked="">
+                            <label class="btn btn-outline-primary" for="btnradio1">User</label>
+
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" value="Provider"
+                                autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btnradio2">Provider</label>
+
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" value="Admin"
+                                autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btnradio3">Admin</label>
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Username</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" name="Username">
+                            <!-- <div id="emailHelp" class="form-text">We'll never share your email with
+                        anyone else.</div> -->
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" name="Password">
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1" required>Remember
+                                me</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Log In</button>
+                    </form>
+
+                </div>
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#register">Register Now</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Log In Modals -->
+
+    <!-- Sign Up Modals -->
+
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#register">Sign
+        Up</button>
+    <div class="modal fade" id="register" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true" style="color: white;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Sign Up</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3" method="post" method="post" id="registrationForm" action="/register">
+                        <div class="d-flex flex-column mb-3">
+                            <label for="validationDefault07" class="form-label" placeholder="XYZ@123">Username</label>
+                            <input type="text" class="form-control" id="validationDefault07" required name="Username"
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{5,}"
+                                title="Username must be contain at least one digit, one uppercase letter, one lowercase letter, and one special character and their length must be 8 characters">
+                        </div>
+
+                        <div class="d-flex flex-column mb-3">
+                            <label for="validationDefault01" class="form-label" placeholder="Full Name">Full
+                                Name</label>
+                            <input type="text" class="form-control" id="validationDefault01" required name="name"
+                                pattern="^[A-Za-z]+(?:\s[A-Za-z]+)*$" title="Please enter only alphabetic characters">
+                        </div>
+                        <div class="d-flex flex-column mb-3">
+                            <label for="validationDefaultUsername" class="form-label"
+                                placeholder="xyz@gmail.com">Email</label>
+                            <div class="input-group">
+                                <input type="email" class="form-control" id="validationDefaultEmail"
+                                    aria-describedby="inputGroupPrepend2" required name="Email">
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-column mb-3">
+                            <label for="validationDefault08" class="form-label" placeholder="Address">Address</label>
+                            <input type="text" class="form-select" id="validationDefault08" required name="Address">
+                        </div>
+
+                        <div class="d-flex flex-column mb-3">
+                            <label for="validationDefault03" class="form-label">City</label>
+                            <select class="form-select" id="validationDefault03" required name="City">
+                                <option value="">Choose...</option>
+                                <option value="Gwalior">Gwalior</option>
+                            </select>
+                        </div>
+
+                        <div class="d-flex flex-column mb-3">
+                            <label for="validationDefault04" class="form-label" placeholder="Phone Number">Phone
+                                Number</label>
+                            <input type="tel" class="form-control" id="validationDefault04" required name="PhoneNo"
+                                pattern="[6-9][0-9]{9}"
+                                title="Please enter a valid 10-digit phone number starting with 6, 7, 8, or 9"
+                                maxlength="10">
+                        </div>
+                        <div class="d-flex flex-column mb-3">
+                            <label for="validationDefault05" class="form-label" placeholder="Password">Password</label>
+                            <input type="password" class="form-control" id="validationDefault05" required
+                                name="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}"
+                                title="Password must be at least 8 characters long and contain at least one digit, one uppercase letter, one lowercase letter, and one special character">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="validationDefault06" class="form-label">User Category</label>
+                            <select class="form-select" id="validationDefault06" name="userCategory" required>
+                                <option selected value="User">User</option>
+                                <option value="Provider">Provider</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                                <label class="form-check-label" for="invalidCheck2">
+                                    Agree to terms and conditions
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary" type="submit">Register</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Login">Log
+                        In</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sign Up Modals -->
+</div>
+
+
+<script>
+        console.log("Login");
+    document.querySelector('.profile').style.display = 'none';
+
+</script>

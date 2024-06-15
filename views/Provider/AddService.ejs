@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<!---Coding By CodingLab | www.codinglabweb.com--->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <!--<title>Registration Form in HTML CSS</title>-->
+  <!---Custom CSS File--->
+  <!-- <link rel="stylesheet" href="style.css" /> -->
+  <style>
+    /* Import Google font - Poppins */
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      /* background: rgb(130, 106, 251); */
+      background-image: linear-gradient(405deg, rgba(187, 187, 187, 0.04) 0%, rgba(187, 187, 187, 0.04) 50%, rgba(86, 86, 86, 0.04) 50%, rgba(86, 86, 86, 0.04) 100%), linear-gradient(495deg, rgba(166, 166, 166, 0.04) 0%, rgba(166, 166, 166, 0.04) 50%, rgba(92, 92, 92, 0.04) 50%, rgba(92, 92, 92, 0.04) 100%), linear-gradient(450deg, rgb(20, 20, 20), rgb(20, 20, 20));
+      background-size: 142px 142px;
+    }
+
+    .container {
+      position: relative;
+      max-width: 700px;
+      width: 100%;
+      background: #fff;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .container header {
+      font-size: 1.5rem;
+      color: #333;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .container .form {
+      margin-top: 30px;
+    }
+
+    .form .input-box {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .input-box label {
+      color: #333;
+    }
+
+    .form :where(.input-box input, .select-box) {
+      position: relative;
+      height: 50px;
+      width: 100%;
+      outline: none;
+      font-size: 1rem;
+      color: #707070;
+      margin-top: 8px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 0 15px;
+    }
+
+    .input-box input:focus {
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .form .column {
+      display: flex;
+      column-gap: 15px;
+    }
+
+    .form .gender-box {
+      margin-top: 20px;
+    }
+
+    .gender-box h3 {
+      color: #333;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    .form :where(.gender-option, .gender) {
+      display: flex;
+      align-items: center;
+      column-gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    .form .gender {
+      column-gap: 5px;
+    }
+
+    .gender input {
+      accent-color: rgb(130, 106, 251);
+    }
+
+    .form :where(.gender input, .gender label) {
+      cursor: pointer;
+    }
+
+    .gender label {
+      color: #707070;
+    }
+
+    .address :where(input, .select-box) {
+      margin-top: 15px;
+    }
+
+    .select-box select {
+      height: 100%;
+      width: 100%;
+      outline: none;
+      border: none;
+      color: #707070;
+      font-size: 1rem;
+    }
+
+    #button {
+      height: 55px;
+      width: 100%;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-top: 30px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: rgb(222 18 18);
+
+    }
+
+    #button:hover {
+      background: rgb(255 0 0);
+    }
+
+    /*Responsive*/
+    @media screen and (max-width: 500px) {
+      .form .column {
+        flex-wrap: wrap;
+      }
+
+      .form :where(.gender-option, .gender) {
+        row-gap: 15px;
+      }
+    }
+
+    .input-box textarea {
+      /* width: calc(100% - 20px); Adjust width to accommodate padding and borders */
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 16px;
+      resize: none;
+    }
+
+
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+
+    textarea {
+      height: 200px;
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="container">
+    <header>Add Listing</header>
+    <form action="/Add-Services" method="post" class="form">
+      <div class="input-box">
+        <label for="serviceId">Service ID</label>
+        <input type="text" id="serviceId" name="serviceId" maxlength="25" value="<%= s_id %>" disabled>
+      </div>
+
+      <div class="input-box">
+        <label for="providerId">Username</label>
+        <input type="text" id="providerId" name="providerId" maxlength="25" value="<%= p_id %>" disabled>
+      </div>
+
+      <div class="input-box">
+        <label for="serviceId">Image Link</label>
+        <input type="text" id="image" name="image" required>
+        <span class="link"><a href="https://postimages.org/" target="_blank">Use Postimages to Generate Link</a></span>
+      </div>
+
+      <div class="input-box">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" maxlength="80" required pattern="^[A-Za-z]+(?:\s[A-Za-z]+)*$">
+        <span style="color: black;display: flex;flex-direction: column;justify-self: end;">80 Character only</span>
+      </div>
+
+      <div class="input-box address">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" rows="3" name="description" maxlength="500" pattern="^[A-Za-z]+(?:\s[A-Za-z]+)*$" required></textarea>
+      </div>
+
+      <div class="input-box">
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" max="5999" min="1" required>
+      </div>
+      <br>
+      <label for="price">Category:</label>
+      <div class="column">
+        <div class="select-box">
+          <select id="category" name="category">
+            <option hidden>Category</option>
+            <option value="Repair">Repair</option>
+            <option value="Installation">Installation</option>
+            <option value="Assemble">Assemble</option>
+            <option value="Uninstallation">Uninstallation</option>
+            <option value="Maintenance">Maintenance</option>
+            <option value="Cleaning">Cleaning</option>
+            <option value="Others">Others</option>
+          </select>
+        </div>
+
+
+
+      </div>
+      <input input type="submit" id='button' style="background-color: green;" value="Add Service">
+      <input input type="button" id='button' value="Back" onclick="window.location.href='/profile'">
+    </form>
+  </section>
+</body>
+<script>
+  if (!localStorage.getItem('refreshed')) {
+            // Refresh the page after 3 seconds if it's the first visit
+            setTimeout(() => {
+                location.reload();
+            }, 3000);
+
+            // Set a flag in localStorage to indicate that the page has been refreshed
+            localStorage.setItem('refreshed', 'true');
+            }
+</script>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Hub :- Frequently Asked Questions</title>
+    <%- include('./header.ejs') %>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+        }
+        .box{
+            background-color: black;
+            padding: 20px 0; /* Adjust padding for smaller screens */
+        }
+        .container {
+            max-width: 90%; /* Adjusted for responsiveness */
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .faq-section {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .faq-item {
+            background-color: rgb(255, 255, 255);
+            margin: 10px;
+            padding: 20px;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 600px;
+        }
+        .faq-question {
+            font-weight: bold;
+            cursor: pointer;
+            background-color: rgb(255, 255, 255);
+            color: black;
+        }   
+        .faq-answer {
+            color: black;
+            display: none;
+            margin-top: 10px;
+        }
+
+        /* Media query for smaller screens */
+        @media screen and (max-width: 600px) {
+            .faq-item {
+                max-width: 100%; /* Adjusted for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <%- include('navbar.ejs') %>
+    </div>
+    <div class="box">
+        <div class="container">
+            <h1 style="color:white;text-align: center;">Frequently Asked Questions</h1>
+            <div class="faq-section">
+                <div class="faq-item">
+                    <div class="faq-question">What is Services Hub?</div>
+                    <div class="faq-answer">Services Hub is a technology platform offering a variety of services at home. Customers use our platform to book services such as beauty treatments, haircuts, massage therapy, cleaning, plumbing, carpentry, appliance repair, painting etc.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How do I book a service?</div>
+                    <div class="faq-answer">To book a service, you can visit our website, select the service you want, and fill out the booking form with the required details. Once you submit the form, we will confirm your booking and provide you with the necessary details to connect with the service provider.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What is the cost of the services?</div>
+                    <div class="faq-answer">The cost of the services may vary depending on the service provider and the specific service you are booking. You can view the cost of each service on the service provider's profile page.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <%- include('Footer.ejs') %>
+    </footer>
+    <script>
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>

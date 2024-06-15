@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <!-- Your HTML content -->
+
+
+
+</head>
+
+<body>
+
+</body>
+<!-- SweetAlert JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Unauthorized Access",
+            // footer: '<a href="#">Why do I have this issue?</a>'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                console.log('User clicked OK button');
+                // Redirect to the '/' route
+                window.location.href = '/';
+            }
+        });
+
+    });
+</script>
+
+</html>

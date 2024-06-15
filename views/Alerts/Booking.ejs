@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank you for booking</title>
+    <!-- SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <!-- Your HTML content -->
+
+
+
+</head>
+
+<body>
+
+</body>
+<!-- SweetAlert JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    // Display a Sweet Alert thanking the user for booking
+Swal.fire({
+    title: 'Thank You!',
+    text: 'Thank you for booking.',
+    icon: 'success',
+    timer: 2000, // Timer for auto-close in milliseconds
+    timerProgressBar: true,
+    showConfirmButton: false // Hide the "OK" button
+}).then((result) => {
+    // After the timer expires, reload the page
+    window.location.href = '/services'; // Redirect to the services page
+});
+
+</script>
+
+</html>

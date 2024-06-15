@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Favicon start -->
+    <link rel="apple-touch-icon" sizes="512x512" href="favicon_io/android-chrome-512x512.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="favicon_io/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <!-- Favicon End -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- <link rel="stylesheet" href="styles.css"> Link your CSS file -->
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000000;
+            /* Set background color */
+        }
+        .container h1{
+
+            text-align: center;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* Adding box shadow for depth */
+            width: 90vw;
+            margin-top: 15px;
+            /* Set container width */
+        }
+
+        .text{
+            color: black;
+        }
+        @media screen and (min-width:550px){
+            .container {
+            width: 500px;
+            margin: auto 0px;
+            /* margin-top: 25px; */
+            /* Set container width */
+        }
+}
+        form {
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Contact Us</h1>
+        <form action="/sendEmail" method="POST">
+            <div class="mb-3 text">
+                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="Email" required>
+            </div>
+
+            <div class="mb-3 text">
+                <label for="exampleFormControlTextarea1" class="form-label">Subject</label>
+                <input class="form-control" type="text"  name="subject" placeholder="Subject" aria-label="default input example" required>
+            </div>
+            <div class="mb-3 text">
+                <label for="exampleFormControlTextarea2" class="form-label">Description</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="3" placeholder="Description" required></textarea>
+            </div>
+
+            <!-- <div class="mb-3">
+                <label for="formFile" class="form-label">File Upload</label>
+                <input class="form-control" type="file"  name="file" id="formFile">
+            </div> -->
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary mb-3">Submit</button>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary mb-3"><a href="/" style="text-decoration: none;color: white;">Back</a></button></a>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    // JavaScript to show feedback message on form submission
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent form submission
+        alert('Thank you for your message! We will get back to you soon.');
+        this.reset(); // Reset form fields after submission
+    });
+</script>
+
+</html>

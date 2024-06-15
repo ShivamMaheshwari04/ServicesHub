@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<!---Coding By CodingLab | www.codinglabweb.com--->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Bootstrap JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!--<title>Registration Form in HTML CSS</title>-->
+  <!---Custom CSS File--->
+  <!-- <link rel="stylesheet" href="style.css" /> -->
+  <style>
+    /* Import Google font - Poppins */
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      /* background: rgb(130, 106, 251); */
+      background-image: linear-gradient(405deg, rgba(187, 187, 187, 0.04) 0%, rgba(187, 187, 187, 0.04) 50%, rgba(86, 86, 86, 0.04) 50%, rgba(86, 86, 86, 0.04) 100%), linear-gradient(495deg, rgba(166, 166, 166, 0.04) 0%, rgba(166, 166, 166, 0.04) 50%, rgba(92, 92, 92, 0.04) 50%, rgba(92, 92, 92, 0.04) 100%), linear-gradient(450deg, rgb(20, 20, 20), rgb(20, 20, 20));
+      background-size: 142px 142px;
+    }
+
+    .container {
+      position: relative;
+      max-width: 700px;
+      width: 100%;
+      background: #fff;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .container header {
+      font-size: 1.5rem;
+      color: #333;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .container .form {
+      margin-top: 30px;
+    }
+
+    .form .input-box {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .input-box label {
+      color: #333;
+    }
+
+    .form :where(.input-box input, .select-box) {
+      position: relative;
+      height: 50px;
+      width: 100%;
+      outline: none;
+      font-size: 1rem;
+      color: #707070;
+      margin-top: 8px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 0 15px;
+    }
+
+    .input-box input:focus {
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .form .column {
+      display: flex;
+      column-gap: 15px;
+    }
+
+    .form .gender-box {
+      margin-top: 20px;
+    }
+
+    .gender-box h3 {
+      color: #333;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    .form :where(.gender-option, .gender) {
+      display: flex;
+      align-items: center;
+      column-gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    .form .gender {
+      column-gap: 5px;
+    }
+
+    .gender input {
+      accent-color: rgb(130, 106, 251);
+    }
+
+    .form :where(.gender input, .gender label) {
+      cursor: pointer;
+    }
+
+    .gender label {
+      color: #707070;
+    }
+
+    .address :where(input, .select-box) {
+      margin-top: 15px;
+    }
+
+    .select-box select {
+      height: 100%;
+      width: 100%;
+      outline: none;
+      border: none;
+      color: #707070;
+      font-size: 1rem;
+    }
+
+    #button {
+      height: 55px;
+      width: 100%;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-top: 30px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: rgb(222 18 18);
+
+    }
+
+    #button:hover {
+      background: rgb(255 0 0);
+    }
+
+    /*Responsive*/
+    @media screen and (max-width: 500px) {
+      .form .column {
+        flex-wrap: wrap;
+      }
+
+      .form :where(.gender-option, .gender) {
+        row-gap: 15px;
+      }
+    }
+
+    .input-box textarea {
+      /* width: calc(100% - 20px); Adjust width to accommodate padding and borders */
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 16px;
+      resize: none;
+    }
+
+
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+
+    textarea {
+      height: 200px;
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+
+    button {
+      margin: 0px 20px 0px 20px;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="container">
+    <header>Add Listing</header>
+    <form action="/update-service" method="post" class="form">
+
+      <div class="input-box">
+        <label for="serviceId">Service ID</label>
+        <input type="text" id="sid" name="s_id" value="<%=item.s_id%>" disabled>
+      </div>
+      <div class="input-box">
+        <label for="serviceId">Image Link</label>
+        <input type="text" id="image" name="ImageLink" value="<%=item.ImageLink%>" required>
+        <span class="link"><a href="https://postimages.org/" target="_blank">Use Postimages to Generate Link</a></span>
+      </div>
+
+      <div class="input-box">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" value="<%=item.title%>" maxlength="80" required
+          pattern="^[A-Za-z]+(?:\s[A-Za-z]+)*$">
+        <span style="color: black;display: flex;flex-direction: column;justify-self: end;">80 Character only</span>
+      </div>
+
+      <div class="input-box address">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" rows="3" name="description" maxlength="500"
+          pattern="^[A-Za-z]+(?:\s[A-Za-z]+)*$" required><%= item.description %></textarea>
+      </div>
+
+
+      <div class="input-box">
+        <label for="price">Price:</label>
+        <input type="number" id="price" value="<%=item.price%>" name="price" max="5999" min="1" required>
+      </div>
+      <br>
+      <label for="category">Category:</label>
+      <div class="column">
+        <div class="select-box">
+          <select id="category" name="category" required>
+            <option hidden>Select Category</option>
+            <option value="Repair" <%=item.category==='Repair' ? 'selected' : '' %>>Repair</option>
+            <option value="Installation" <%=item.category==='Installation' ? 'selected' : '' %>>Installation</option>
+            <option value="Assemble" <%=item.category==='Assemble' ? 'selected' : '' %>>Assemble</option>
+            <option value="Uninstallation" <%=item.category==='Uninstallation' ? 'selected' : '' %>>Uninstallation
+            </option>
+            <option value="Maintenance" <%=item.category==='Maintenance' ? 'selected' : '' %>>Maintenance</option>
+            <option value="Cleaning" <%=item.category==='Cleaning' ? 'selected' : '' %>>Cleaning</option>
+            <option value="Others" <%=item.category==='Others' ? 'selected' : '' %>>Others</option>
+          </select>
+        </div>
+      </div>
+
+
+
+
+      </div>
+      <div class="container1" style="display: flex;justify-content: center;align-items: center;margin: 20px;">
+        <button type="submit" class="btn btn-success" id="update-btn" data-toggle="modal"
+          data-target=".bd-example-modal-lg">Update</button>
+        <button type="button" class="btn btn-danger" onclick="window.history.back()">Cancel</button>
+      </div>
+    </form>
+  </section>
+</body>
+<script>
+document.getElementById('update-btn').addEventListener('click', function (event) {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    // Get the current values of the form fields
+    const imageLink = document.getElementById("image").value;
+    const title = document.getElementById("title").value;
+    const description = document.getElementById("description").value;
+    const price = document.getElementById("price").value;
+    const category = document.getElementById("category").value;
+
+    // Check if all required fields are filled and validate price
+    if (imageLink.trim() === '' || title.trim() === '' || description.trim() === '' || price.trim() === '' || category.trim() === '') {
+        // Display an error message if any required field is empty
+        swal("Error!", "Please fill in all required fields.", "error");
+        return; // Exit function if any required field is empty
+    } else if (isNaN(parseFloat(price)) || parseFloat(price) < 1) {
+        // Display an error message if price is not a number or less than 1
+        swal("Error!", "Price must be a number and at least 1.", "error");
+        return; // Exit function if price is invalid
+    }
+
+    // Check if any of the form fields have been modified
+    const isModified = imageLink !== '<%=item.ImageLink%>' ||
+      title !== '<%=item.title%>' ||
+      description !== '<%=item.description%>' ||
+      price !== '<%=item.price%>' ||
+      category !== '<%=item.category%>';
+
+    // If any field has been modified, display the confirmation dialog
+    if (isModified) {
+      swal({
+        title: "Are you sure?",
+        text: "You are about to update the service!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((willUpdate) => {
+        if (willUpdate) {
+          // If the user confirms, send the form data using AJAX
+          const formData = {
+            imageLink: imageLink,
+            title: title,
+            description: description,
+            price: price,
+            category: category
+          };
+
+          // Send the form data to the server using AJAX
+          $.ajax({
+            type: "POST",
+            url: "/update-service",
+            data: formData,
+            success: function (response) {
+              // Handle the response from the server
+              swal("Service updated successfully!", {
+                icon: "success",
+              });
+              setTimeout(function () {
+                window.history.back();
+              }, 2000);
+              // Optionally, redirect to another page after successful update
+              // window.location.href = "/success-page";
+            },
+            error: function (error) {
+              // Handle the error
+              swal("Error updating service!", {
+                icon: "error",
+              });
+              setTimeout(function () {
+                window.history.back();
+              }, 2000);
+            }
+          });
+        } else {
+          // If the user cancels, do nothing
+        }
+      });
+    } else {
+      // If no fields have been modified, do nothing
+    }
+});
+
+  window.addEventListener('load', function () {
+    const descriptionTextarea = document.getElementById("description");
+    const originalDescription = descriptionTextarea.value;
+    const sanitizedDescription = originalDescription.replace(/['"]/g, ''); // Remove single and double quotes
+    if (originalDescription !== sanitizedDescription) {
+      descriptionTextarea.value = sanitizedDescription; // Update the textarea with sanitized value
+    }
+  });
+
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+</html>

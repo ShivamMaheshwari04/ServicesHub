@@ -1,0 +1,15 @@
+.btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: rgb(233, 10, 10);
+    color: white;
+    border: 1px solid black;
+}
+
+.btn-group>:not(.btn-check)+.btn {
+    background-color: green;
+    color: white;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid black;
+}

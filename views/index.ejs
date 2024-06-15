@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Hub :- Get Expert Professional Services at Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Favicon start -->
+    <link rel="apple-touch-icon" sizes="512x512" href="favicon_io/android-chrome-512x512.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="favicon_io/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <!-- Favicon End -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+</head>
+
+
+<body>
+
+    <!-- Navbar Start -->
+    
+    <%- include('./Other Files/navbar.ejs', { userData }) %>
+
+    
+
+
+    <!-- Navbar End -->
+
+    <!-- Carosuel Start -->
+
+
+    <div class="carousel" style="max-width: 100%; overflow: hidden;">
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="Images/Carousel Images/AC Repair.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="des-text">AC Repair Services</h5>
+                        <p class="des-text-p">Efficient solutions to keep your home cool and comfortable. Trust our
+                            skilled technicians for reliable AC repairs.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Images/Carousel Images/Refrigerator Images.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="des-text">Refrigerator Services</h5>
+                        <p class="des-text-p">Keep your food fresh and your refrigerator running smoothly with our
+                            comprehensive repair and maintenance services.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Images/Carousel Images/Washing Machine.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="des-text">Washing Machine Services</h5>
+                        <p class="des-text-p">Keep your laundry routine uninterrupted with our expert washing machine
+                            repair and maintenance solutions.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Categories Start -->
+    <div class="card-center">
+        <h1>Categories</h1>
+        <div class="row row-cols-1 row-cols-md-4 g-3">
+            <div class="col">
+                <div class="card">
+                    <img src="Images\Categories\Bathroom & Kitchen Cleaning.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Bathroom & Kitchen Cleaning</h5>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="Images\Categories\Full Home Cleaning.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Full Home Cleaning</h5>
+                        <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="Images\Categories\Washing Machine Repair.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Washing Machine Repair</h5>
+                        <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content.</p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="Images\Categories\Refrigerator Repair.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Refrigerator Repair</h5>
+                        <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="Images\Categories\Sofa & Carpet Cleaning.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Sofa & Carpet Cleaning</h5>
+                        <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="Images\Categories\Water Purifier Repair.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Water Purifier Repair</h5>
+                        <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Categories End -->
+    <!-- Carosuel End -->
+
+    <!-- Cards START-->
+    <div class="card-center">
+        <h1>New and noteworthy</h1>
+        <div class="row row-cols-1 row-cols-md-4 g-3">
+            <div class="col">
+                <div class="card">
+                    <img src="Images\Cards\AC Repair and Services.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">AC Repair and Services</h5>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="Images\Cards\Furniture Assembly.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Furniture Assembly</h5>
+                        <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="Images\Cards\Native Smart Locks.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Native Smart Locks</h5>
+                        <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content.</p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="Images\Cards\Painter.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Painter</h5>
+                        <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="Images\Cards\Purifier.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Purifier</h5>
+                        <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Cards END -->
+
+
+
+    <!-- Footer Start -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/contact" target="_blank">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Affiliate Program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Get Help</h4>
+                    <ul>
+                        <li><a href="/FAQ">FAQ</a></li>
+                        <li><a href="#">Booking</a></li>
+                        <li><a href="#">Cancellation</a></li>
+                        <li><a href="#">Booking Status</a></li>
+                        <!-- <li><a href="#">Payment Options</a></li> -->
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Service Category</h4>
+                    <ul>
+                        <li><a href="#">Repair</a></li>
+                        <li><a href="#">Maintenance</a></li>
+                        <li><a href="#">Installation</a></li>
+                        <li><a href="#">Uninstallation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Footer End -->
+
+
+    <script>
+        
+        
+    </script>
+    
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script src="js/script.js"></script>
+</body>
+
+</html>
