@@ -16,10 +16,10 @@ ServiceHub is a service management application. This README provides a comprehen
 - JavaScript
 - Bootstrap
 
-![HTML](path/to/html-logo.png)
-![CSS](path/to/css-logo.png)
-![JavaScript](path/to/js-logo.png)
-![Bootstrap](path/to/bootstrap-logo.png)
+![HTML]
+![CSS]
+![JavaScript]
+![Bootstrap]
 
 ### Backend
 
@@ -27,15 +27,9 @@ ServiceHub is a service management application. This README provides a comprehen
 - Express.js
 - SweetAlert (for showing alerts)
 
-![Node.js](path/to/nodejs-logo.png)
-![Express.js](path/to/express-logo.png)
-![SweetAlert](path/to/sweetalert-logo.png)
-
 ### Database
 
 - MySQL Workbench
-
-![MySQL](path/to/mysql-logo.png)
 
 ## Setup Instructions
 
